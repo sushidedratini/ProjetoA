@@ -1,0 +1,39 @@
+body {
+    background-color: #31334c;
+}
+
+ul {
+    list-style-type: none;
+}
+
+
+.dados-listagem {
+    background-color: #31334c;
+    width: 100%;
+
+}
+
+img {
+    border-radius: 50%;
+}
+
+.nomedeusuario {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: red;
+}
+
+.id-username {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: green;
+
+}
+
+button .botao-pagar {
+    width: 100px;
+    height: 30px;
+    background-color: #FFF;
+    color: #000;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    border-radius: 10px;
+}
+

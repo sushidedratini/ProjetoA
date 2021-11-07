@@ -2,12 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
 import './app.css';
-import Api from './Api';
+import ListaDeUsuarios from './ListaDeUsuarios';
 
 ReactDOM.render(
   <React.StrictMode>
     <App />
-    <Api />
+    <ListaDeUsuarios />
   </React.StrictMode>,
   document.getElementById('root')
 );
