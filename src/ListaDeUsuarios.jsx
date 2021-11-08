@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './listadeusuarios.css';
 
+//Consumindo as informações da API
 export default class ListaDeUsuarios extends Component {
     state = {
         dados: []
@@ -16,6 +17,7 @@ export default class ListaDeUsuarios extends Component {
         this.setState({dados: corpo})
     }
 
+// Renderizando na tela as informações recebidas da API 
 render() {
     return (
         <table className="dados-listagem">
