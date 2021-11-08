@@ -24,7 +24,8 @@ render() {
                     <li key={item.img}><img className="thumbnail" src={item.img} alt="Foto do usuário"></img></li>
                     <li key={item.name} className="nomedeusuario">Nome do Usuário: {item.name}</li>
                     <li key={item.id} className="id-username">ID: {item.id} - Username: {item.username}</li>
-                    <li className="botao-pagar"><button>Pagar</button></li>
+                    <li><button className="botao-pagar">Pagar</button></li>
+                    <hr></hr>
                 </ul>
             ))}
         </div>
