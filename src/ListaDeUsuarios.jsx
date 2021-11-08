@@ -18,17 +18,16 @@ export default class ListaDeUsuarios extends Component {
 
 render() {
     return (
-        <div className="dados-listagem">
+        <table className="dados-listagem">
             {this.state.dados.map(item => (
-                <ul>
-                    <li key={item.img}><img className="thumbnail" src={item.img} alt="Foto do usuário"></img></li>
-                    <li key={item.name} className="nomedeusuario">Nome do Usuário: {item.name}</li>
-                    <li key={item.id} className="id-username">ID: {item.id} - Username: {item.username}</li>
-                    <li><button className="botao-pagar">Pagar</button></li>
-                    <hr></hr>
-                </ul>
+                <tr>
+                    <td key={item.img}><img className="thumbnail" src={item.img} alt="Foto do usuário"></img></td>
+                    <td key={item.name} className="nomedeusuario">Nome do Usuário: {item.name}<span>ID: {item.id} - Username: {item.username}</span>
+                    </td>
+                    <td><button className="botao-pagar" onClick="fazerPagamento()">Pagar</button></td>
+                </tr>
             ))}
-        </div>
+        </table>
     )
 }
 }
