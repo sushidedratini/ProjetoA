@@ -1,64 +1,42 @@
 body {
-    background-color: #31334c;
-}
-
-tr {
-    height: 160px;
-    border-bottom: 1px solid white;
-    margin-top: 30px;
-}
-
-td:first-child { 
-    width: 150px;
-}
-
-td:first-child + td {  
-    width: 450px;
-}
-
-td:first-child + td + td {  
-    width: 200px; 
-    text-align: center;
-}
-
-td .nomedeusuario {
-    margin-left: 0%;
-}
-
-span {
-    display: block;
-}
-
-
-.dados-listagem {
-    max-width: 800px;
-    background-color: #31334c;
-    margin-left: auto;
-    margin-right: auto;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-img {
-    border-radius: 50%;
-}
-
-.nomedeusuario, .id-username {
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.container {
+    background-image: linear-gradient(#31324F, #1F202E);
+    margin-top: 0.063rem;
+    align-items: center;
+    padding: 1.25rem;
+}
+
+.content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.thumbnail {
+    border-radius: 50%;
+    margin-right: 1.25rem;
+}
+
+.infos {
+    margin-right: auto;
+}
+
+.infos p {
     font-size: 18px;
     color: #FFF;
-    padding-top: 10px;
-    margin-top: 3%;
-    margin-left: 3%;
 }
 
-.botao-pagar {
-    width: 75px;
+button {
+    padding: 0.25rem 0.438rem;
     font-size: 15px;
+    color: #000000;
     font-weight: bold;
-}
-
-hr {
-    border-top: 1px solid red;
 }

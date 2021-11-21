@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Pagamentos} from 'react';
 import './listadeusuarios.css';
 
 //Consumindo as informações da API
@@ -20,16 +20,20 @@ export default class ListaDeUsuarios extends Component {
 // Renderizando na tela as informações recebidas da API 
 render() {
     return (
-        <table className="dados-listagem">
+        <>
             {this.state.dados.map(item => (
-                <tr>
-                    <td key={item.img}><img className="thumbnail" src={item.img} alt="Foto do usuário"></img></td>
-                    <td key={item.name} className="nomedeusuario">Nome do Usuário: {item.name}<span>ID: {item.id} - Username: {item.username}</span>
-                    </td>
-                    <td><button className="botao-pagar" onClick="fazerPagamento()">Pagar</button></td>
-                </tr>
-            ))}
-        </table>
+                <div className="container">
+                    <div className="content">
+                        <img key={item.img} className="thumbnail" src={item.img} alt="Foto do usuário" />
+                        <div className="infos">   
+                            <p key={item.name}>Nome do Usuário: {item.name}</p>
+                            <p key={item.id}>ID: {item.id} - Username: {item.username}</p>
+                        </div>
+                        <button className="botao-pagar" onClick={Pagamentos}>Pagar</button>
+                    </div>
+                </div>
+                ))}
+        </>
     )
-}
+    }
 }
