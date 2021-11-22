@@ -108,3 +108,49 @@ button {
     font-weight: bold;
     margin-top: 2%;
 }
+
+/* Media Queries */
+
+@media screen and (max-width: 412px) and (min-width: 391px) {
+    .thumbnail {
+        width: 75px;
+    }
+
+    .infos p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 390px) and (min-width: 376px) {
+    .thumbnail {
+        width: 75px;
+    }
+
+    .infos p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 375px) and (min-width: 361px) {
+    .thumbnail {
+        width: 75px;
+    }
+
+    .infos p {
+        font-size: 15px;
+    }
+}
+
+@media screen and (max-width: 360px) and (min-width: 280px) {
+    .thumbnail {
+        width: 60px;
+    }
+
+    .infos p {
+        font-size: 10px;
+    }
+
+    button {
+        font-size: 10px;
+    }
+}
