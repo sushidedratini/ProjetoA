@@ -1,3 +1,5 @@
+/* CSS da Lista de Usuários para Pagamento */
+
 body {
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -39,4 +41,70 @@ button {
     font-size: 15px;
     color: #000000;
     font-weight: bold;
+}
+
+/* CSS dos Modals */
+
+.abrirModal {
+    display: flex;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    right: 'auto';
+    bottom: 'auto';
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    width: 310px;
+    height: 190px;
+    flex-direction: column;
+    background-color: white;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px solid black;
+}
+
+.texto-cabecalho-modal {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #474971;
+    color: #FFFFFF;
+    padding: 10px;
+    width: 94%;
+    margin-top: 0%;
+    align-content: center;
+    font-weight: bold;
+}
+
+.texto-cabecalho-modal span {
+    color: #C8D63C;
+    font-weight: bold;
+}
+
+.abrirModal select {
+    width: 57%;
+    height: 30px;
+    border-radius: 5px;
+}
+
+.abrirModal button {
+    width: 20%;
+    margin-bottom: 10px;
+}
+
+.abrirModal p {
+    text-align: center;
+}
+
+.valorInput {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+    justify-content: center;
+}
+
+.valorInput p {
+    margin: 0;
+    color: red;
+    font-weight: bold;
+    margin-top: 2%;
 }
