@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import NumberFormat from 'react-number-format';
 import './listadeusuarios.css';
 import axios from 'axios';
+import ic_pagto from './assets/icons/attach_money_black_24dp.svg';
 
 //Pegando as informações da API pelo GET
 const ListaDeUsuarios = () => {
@@ -80,18 +81,29 @@ const valorInput = (event) => {
 // Renderizando na tela as informações recebidas da API 
     return (
         <>
+            <div className="teste">
             {infos.map(item => (
                 <div className="container" key={item.index}>
                     <div className="content">
-                        <img className="thumbnail" src={item.img} alt="Foto do usuário" />
-                        <div className="infos">   
-                            <p>Nome do Usuário: {item.name}</p>
-                            <p>ID: {item.id} - Username: {item.username}</p>
+                        <div className='profile-container'>
+                            <img className="thumbnail" src={item.img} alt="Foto do usuário" />
+                            <button type='submit' className='btn-pgto' onClick={()=>{abrirModalPagar(item.name)}}>
+                                <img src={ic_pagto} className='icon' alt='Pagar'/>
+                            </button>
                         </div>
-                        <button className="botao-pagar" onClick={()=>{abrirModalPagar(item.name)}}>Pagar</button>
+
+                        <div className='infos'>
+                            <p className='item-id'>#{item.id}</p>
+                            <p className='item-name'>{item.name}</p>
+                            <p className='item-username'>{item.username}</p>
+                        </div>
+                        
+                        
+
                     </div>
                 </div>
             ))}
+            </div>
 
             {/*--------------------------------Abrir Modal de pagamento----------------------------------*/}
             <div className="abrirModal" style={{display: abrirPagamento}}>
