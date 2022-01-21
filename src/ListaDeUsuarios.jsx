@@ -84,22 +84,22 @@ const valorInput = (event) => {
             <div className="teste">
             {infos.map(item => (
                 <div className="container" key={item.index}>
-                    <div className="content">
-                        <div className='profile-container'>
-                            <img className="thumbnail" src={item.img} alt="Foto do usuário" />
-                            <button type='submit' className='btn-pgto' onClick={()=>{abrirModalPagar(item.name)}}>
-                                <img src={ic_pagto} className='icon' alt='Pagar'/>
-                            </button>
-                        </div>
+                    <div className='profile-container'>
+                        <img className="thumbnail" src={item.img} alt="Foto do usuário" />
+                        <button type='submit' className='btn-pgto' onClick={()=>{abrirModalPagar(item.name)}}>
+                            <img src={ic_pagto} className='icon' alt='Pagar'/>
+                        </button>
+                    </div>
 
-                        <div className='infos'>
-                            <p className='item-id'>#{item.id}</p>
-                            <p className='item-name'>{item.name}</p>
-                            <p className='item-username'>{item.username}</p>
-                        </div>
-                        
-                        
-
+                    <div className='infos'>
+                        <p className='item-id'>#{item.id}</p>
+                        <p className='item-name'>{item.name}</p>
+                        <p className='item-username'>{item.username}</p>
+                    </div>
+                    <div className='btn-container'>
+                        <button type='submit' className='btn-pgto2' onClick={()=>{abrirModalPagar(item.name)}}>
+                            <img src={ic_pagto} className='icon' alt='Pagar'/>
+                        </button>
                     </div>
                 </div>
             ))}
