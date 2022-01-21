@@ -1,0 +1,24 @@
+{
+  "files": {
+    "main.css": "/ProjetoA/static/css/main.f4ece5b7.chunk.css",
+    "main.js": "/ProjetoA/static/js/main.a79a83f3.chunk.js",
+    "main.js.map": "/ProjetoA/static/js/main.a79a83f3.chunk.js.map",
+    "runtime-main.js": "/ProjetoA/static/js/runtime-main.124e6c25.js",
+    "runtime-main.js.map": "/ProjetoA/static/js/runtime-main.124e6c25.js.map",
+    "static/js/2.1a9fb363.chunk.js": "/ProjetoA/static/js/2.1a9fb363.chunk.js",
+    "static/js/2.1a9fb363.chunk.js.map": "/ProjetoA/static/js/2.1a9fb363.chunk.js.map",
+    "index.html": "/ProjetoA/index.html",
+    "precache-manifest.e42d0ecdf7edca3591bce9120f6d4243.js": "/ProjetoA/precache-manifest.e42d0ecdf7edca3591bce9120f6d4243.js",
+    "service-worker.js": "/ProjetoA/service-worker.js",
+    "static/css/main.f4ece5b7.chunk.css.map": "/ProjetoA/static/css/main.f4ece5b7.chunk.css.map",
+    "static/js/2.1a9fb363.chunk.js.LICENSE.txt": "/ProjetoA/static/js/2.1a9fb363.chunk.js.LICENSE.txt",
+    "static/media/listadeusuarios.css": "/ProjetoA/static/media/Roboto-Regular.f36638c2.ttf",
+    "static/media/attach_money_black_24dp.svg": "/ProjetoA/static/media/attach_money_black_24dp.be9ed595.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.124e6c25.js",
+    "static/js/2.1a9fb363.chunk.js",
+    "static/css/main.f4ece5b7.chunk.css",
+    "static/js/main.a79a83f3.chunk.js"
+  ]
+}
