@@ -14,20 +14,29 @@
 body {
     margin: 0;
     padding: 0;
-    background-color: #ffffff;
+    background-color: #f2f2f2;
 }
 
 .teste {
     display: flex;
+    position: relative;
     flex-wrap: wrap;
     flex-direction: row;
     align-content: stretch;
     justify-content: space-around;
+    transition: 0.3s;
+}
+
+.teste#blur.aberto {
+    filter: blur(5px) grayscale(50%);
+    pointer-events: none;
+    user-select: none;
 }
 
 .container {
     width: 50%;
     max-width: 140px;
+    height: 200px;
     background-color: #ffffff;
     padding: 1.25rem;
     margin: 12px;
@@ -128,43 +137,50 @@ button {
     margin-right: -50%;
     transform: translate(-50%, -50%);
     width: 310px;
-    height: 190px;
     flex-direction: column;
     background-color: white;
     justify-content: space-between;
     align-items: center;
-    border: 1px solid black;
+    transition: 0.3s;
+    border: 1px solid;
+    border-radius: 15px 0px;
+    border-color: #ffffff;
+    box-shadow: 5px 5px 10px #888888;
+}
+
+.modal-body {
+    position: relative;
+    width: 100%;
+    height: 100%;
 }
 
 .texto-cabecalho-modal {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #474971;
-    color: #FFFFFF;
+    font-family: Roboto-Regular;
+    color: #2b6777;
     padding: 10px;
     width: 94%;
-    margin-top: 0%;
+    margin-top: 0;
     align-content: center;
     font-weight: bold;
 }
 
-.texto-cabecalho-modal span {
-    color: #C8D63C;
-    font-weight: bold;
-}
-
 .abrirModal select {
-    width: 57%;
+    width: 110px;
     height: 30px;
     border-radius: 5px;
-}
-
-.abrirModal button {
-    width: 20%;
-    margin-bottom: 10px;
+    border-color: #f2f2f2;
 }
 
 .abrirModal p {
     text-align: center;
+    font-family: Roboto-Regular;
+}
+
+input {
+    border-radius: 5px;
+    width: 100px;
+    height: 30px;
+    border-color: #f2f2f2;
 }
 
 .valorInput {
@@ -175,12 +191,54 @@ button {
     justify-content: center;
 }
 
-.valorInput p {
+#alert-lbl {
     margin: 0;
-    color: red;
+    color: #E78587;
+    font-size: 10px;
     font-weight: bold;
+    font-family: Roboto-Regular;
     margin-top: 2%;
 }
+
+.btn-pgto-final {
+    margin: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #52ab98;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 50%;
+    cursor: pointer;
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    transition: 0.2s all;
+}
+
+.btn-pgto-final:active {
+    transform: scale(0.98);
+    /* Scaling button to 0.98 to its original size */
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    /* Lowering the shadow */
+}
+
+#modal-close {
+    position: absolute;
+    top: -5%;
+    right: -5%;
+    width: 35px;
+    height: 35px;
+    background-color: #E78587;
+    background-repeat: no-repeat;
+    border: none;
+    border-radius: 100%;
+    text-align: center;
+    line-height: 50%;
+    cursor: pointer;
+    box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);
+    transition: 0.2s all;
+}
+
 
 /* Media Queries */
 

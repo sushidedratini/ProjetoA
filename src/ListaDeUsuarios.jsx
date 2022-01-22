@@ -3,6 +3,8 @@ import NumberFormat from 'react-number-format';
 import './listadeusuarios.css';
 import axios from 'axios';
 import ic_pagto from './assets/icons/attach_money_black_24dp.svg';
+import ic_fechar from './assets/icons/close_black_24dp.svg';
+import ic_enviar from './assets/icons/payments_black_24dp.svg'
 
 //Pegando as informações da API pelo GET
 const ListaDeUsuarios = () => {
@@ -42,11 +44,13 @@ const [abrirNaoRecebeu, setAbrirNaoRecebeu] = useState(""); // Para msg de erro 
 const [valorCartao, setValorCartao] = useState("1"); // Para pegar o cartão escolhido para pagamento
 const [valorDinheiro, setValorDinheiro] = useState(""); // Para pegar o valor de pagamento digitado
 const [validarCampo, setValidarCampo] = useState("none"); // Para validar campo de valor digitado
+const [modalAberto, setModalAberto] = useState(false);
 
 // Função para abrir o modal de pagamento do usuário
 const abrirModalPagar = (name) => {
     setAbrirPagamento("flex")
     setPegarUsuario(name)
+    setModalAberto(true);
 }
 
 // Função que abre o modal de recibo de pagamento 
@@ -70,6 +74,8 @@ const abrirModalPagou = () => {
 // Função para fechar o modal do recibo de pagamento
 const fecharModal = () => {
     setAbrirPagou("none");
+    setAbrirPagamento("none");
+    setModalAberto(false);
 }
 
 // Função para validar campo de valor para pagamento do usuário
@@ -81,11 +87,11 @@ const valorInput = (event) => {
 // Renderizando na tela as informações recebidas da API 
     return (
         <>
-            <div className="teste">
+            <div className={`teste ${modalAberto ? 'aberto' : ''}`} id="blur">
             {infos.map(item => (
-                <div className="container" key={item.index}>
+                <div className='container' key={item.index}>
                     <div className='profile-container'>
-                        <img className="thumbnail" src={item.img} alt="Foto do usuário" />
+                        <img className='thumbnail' src={item.img} alt='Foto do usuário' />
                         <button type='submit' className='btn-pgto' onClick={()=>{abrirModalPagar(item.name)}}>
                             <img src={ic_pagto} className='icon' alt='Pagar'/>
                         </button>
@@ -106,24 +112,36 @@ const valorInput = (event) => {
             </div>
 
             {/*--------------------------------Abrir Modal de pagamento----------------------------------*/}
-            <div className="abrirModal" style={{display: abrirPagamento}}>
-                <p className="texto-cabecalho-modal">Pagamento para <span>{pegarUsuario}</span></p>
-                <div className="valorInput">
-                <NumberFormat thousandSeparator={true} value={valorDinheiro} onChange={valorInput} prefix={'R$ '} inputmode="numeric" placeholder="R$ 0,00"/>
-                <p style={{display:validarCampo}}>Campo obrigatório</p>
+            <div className='abrirModal' style={{display: abrirPagamento}}>
+                <div className='modal-body'>
+                    <p className='texto-cabecalho-modal'>Pagamento para {pegarUsuario}</p>
+                    <div className="valorInput">
+                        <NumberFormat thousandSeparator={true} value={valorDinheiro} onChange={valorInput} prefix={'R$ '} inputmode="numeric" placeholder="R$ 0,00"/>
+                        <p id='alert-lbl' style={{display:validarCampo}}>Campo obrigatório</p>
+                        <p>Cartão de final:</p>
+                        <select value={valorCartao} onChange={escolhaDoCartao}>
+                            <option value="1">{cards[0].card_number.substr(-4)}</option>
+                            <option value="2">{cards[1].card_number.substr(-4)}</option>
+                        </select>
+                        <button className='btn-pgto-final' onClick={()=>{abrirModalPagou ()}}>
+                        <img src={ic_enviar} className='icon' alt='Fechar'/>
+                        </button>
+                        <button id='modal-close' onClick={()=>{fecharModal()}}>
+                            <img src={ic_fechar} className='icon' alt='Fechar'/>
+                        </button>
+                    </div>
                 </div>
-                <select value={valorCartao} onChange={escolhaDoCartao}>
-                <option value="1">Cartão com final {cards[0].card_number.substr(-4)}</option>
-                <option value="2">Cartão com final {cards[1].card_number.substr(-4)}</option>
-                </select>
-                <button onClick={()=>{abrirModalPagou ()}}>Pagar</button>
             </div>  
 
             {/*------------------------------Abrir Modal de recibo de pagamento--------------------------------*/}
-            <div className="abrirModal" style={{display: abrirPagou}}>
-                <p className="texto-cabecalho-modal">Recibo de pagamento</p>
-                <p>O Pagamento <b>{abrirNaoRecebeu}</b> foi concluído com sucesso</p>
-                <button onClick={()=>{fecharModal()}}>Fechar</button>
+            <div className='abrirModal' style={{display: abrirPagou}}>
+                <div className='modal-body'>
+                    <p className='texto-cabecalho-modal' id='p-recibo'>Recibo de pagamento</p>
+                    <p>O Pagamento <b>{abrirNaoRecebeu}</b> foi concluído com sucesso</p>
+                    <button id='modal-close' onClick={()=>{fecharModal()}}>
+                            <img src={ic_fechar} className='icon' alt='Fechar'/>
+                    </button>
+                </div>
             </div>
         </>
     )
