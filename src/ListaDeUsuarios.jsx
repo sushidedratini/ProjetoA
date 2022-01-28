@@ -2,12 +2,13 @@ import React, { useEffect, useState } from 'react';
 import NumberFormat from 'react-number-format';
 import './listadeusuarios.css';
 import axios from 'axios';
+
 import ic_pagto from './assets/icons/attach_money_black_24dp.svg';
 import ic_fechar from './assets/icons/close_black_24dp.svg';
 import ic_enviar from './assets/icons/payments_black_24dp.svg'
 
 //Pegando as informações da API pelo GET
-const ListaDeUsuarios = () => {
+export const ListaDeUsuarios = () => {
     const [infos, setInfos] = useState([])
     useEffect(() => {
         axios.get('https://www.mocky.io/v2/5d531c4f2e0000620081ddce', {
@@ -116,7 +117,7 @@ const valorInput = (event) => {
                 <div className='modal-body'>
                     <p className='texto-cabecalho-modal'>Pagamento para {pegarUsuario}</p>
                     <div className="valorInput">
-                        <NumberFormat thousandSeparator={true} value={valorDinheiro} onChange={valorInput} prefix={'R$ '} inputmode="numeric" placeholder="R$ 0,00"/>
+                        <NumberFormat thousandSeparator={true} value={valorDinheiro} onChange={valorInput} prefix={'R$ '} inputMode="numeric" placeholder="R$ 0,00"/>
                         <p id='alert-lbl' style={{display:validarCampo}}>Campo obrigatório</p>
                         <p>Cartão de final:</p>
                         <select value={valorCartao} onChange={escolhaDoCartao}>
@@ -147,4 +148,4 @@ const valorInput = (event) => {
     )
 }
 
-export default ListaDeUsuarios
+export default ListaDeUsuarios;

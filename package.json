@@ -10,17 +10,19 @@
     "axios": "^0.24.0",
     "bootstrap": "^5.1.3",
     "gh-pages": "^3.2.3",
+    "jest-canvas-mock": "^2.3.1",
     "react": "^17.0.2",
     "react-bootstrap": "^2.0.2",
     "react-dom": "^17.0.2",
     "react-number-format": "^4.8.0",
-    "react-scripts": "^3.4.4",
+    "react-scripts": "^5.0.0",
     "web-vitals": "^1.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "react-scripts test --max-old-space-size=4096 --detectOpenHandles --passWithNoTests --coverage --colors --watchAll false",
+    "clear-jest": "jest --clearCache",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build"
@@ -42,5 +44,48 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@babel/plugin-syntax-jsx": "^7.16.7",
+    "@babel/preset-react": "^7.16.7",
+    "jest": "^27.4.7"
+  },
+  "jest": {
+    "coverageReporters": [
+      "json",
+      "lcov",
+      "text",
+      "clover",
+      "html"
+    ],
+    "collectCoverageFrom": [
+      "**/*.{tsx,ts,jsx,js}",
+      "!src/**/*.stories.{tsx,jsx,ts}"
+    ],
+    "coveragePathIgnorePatterns": [
+      "^.+\\.js$",
+      "/src/index.js",
+      "index.ts",
+      "index.tsx",
+      "styles.ts",
+      "global.ts",
+      "theme.ts",
+      "api.ts",
+      "interfaces.ts",
+      "reportWebVitals.ts",
+      "\\.d\\.ts$",
+      "/src/assets/",
+      "/src/utils/",
+      "/node_modules/",
+      "/src/index.tsx"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "branches": 0,
+        "functions": 0,
+        "lines": 0,
+        "statements": 0
+      }
+    }
   }
 }
