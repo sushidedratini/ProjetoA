@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ListaDeUsuarios from './ListaDeUsuarios';
+import { ListaDeUsuarios } from './ListaDeUsuarios';
 
 ReactDOM.render(
   <React.StrictMode>

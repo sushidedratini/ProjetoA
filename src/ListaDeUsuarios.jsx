@@ -14,6 +14,9 @@ export const ListaDeUsuarios = () => {
         axios.get('https://www.mocky.io/v2/5d531c4f2e0000620081ddce', {
             method: 'GET',
         }).then((resposta) => {setInfos(resposta.data)})
+        return () => {
+            setInfos({});
+        }
     }, [])
 
 // Mock com lista de cartões para teste
@@ -87,13 +90,14 @@ const valorInput = (event) => {
 
 // Renderizando na tela as informações recebidas da API 
     return (
-        <>
+        <div>
             <div className={`teste ${modalAberto ? 'aberto' : ''}`} id="blur">
             {infos.map(item => (
                 <div className='container' key={item.index}>
                     <div className='profile-container'>
                         <img className='thumbnail' src={item.img} alt='Foto do usuário' />
-                        <button type='submit' className='btn-pgto' onClick={()=>{abrirModalPagar(item.name)}}>
+                        <button title='Pagar' type='submit' className='btn-pgto' onClick={()=>{abrirModalPagar(item.name)}}>
+                            Pagar
                             <img src={ic_pagto} className='icon' alt='Pagar'/>
                         </button>
                     </div>
@@ -104,8 +108,8 @@ const valorInput = (event) => {
                         <p className='item-username'>{item.username}</p>
                     </div>
                     <div className='btn-container'>
-                        <button type='submit' className='btn-pgto2' onClick={()=>{abrirModalPagar(item.name)}}>
-                            <img src={ic_pagto} className='icon' alt='Pagar'/>
+                        <button title='Pagar' type='submit' className='btn-pgto2' onClick={()=>{abrirModalPagar(item.name)}}>
+                            <img aria-label='Botão Pagar' alt='Pagar' src={ic_pagto} className='icon' />
                         </button>
                     </div>
                 </div>
@@ -124,10 +128,12 @@ const valorInput = (event) => {
                             <option value="1">{cards[0].card_number.substr(-4)}</option>
                             <option value="2">{cards[1].card_number.substr(-4)}</option>
                         </select>
+    
                         <button className='btn-pgto-final' onClick={()=>{abrirModalPagou ()}}>
-                        <img src={ic_enviar} className='icon' alt='Fechar'/>
+                        <img aria-label='Botão Fechar' alt='Fechar' src={ic_enviar} className='icon' />
                         </button>
                         <button id='modal-close' onClick={()=>{fecharModal()}}>
+                            Fechar
                             <img src={ic_fechar} className='icon' alt='Fechar'/>
                         </button>
                     </div>
@@ -139,13 +145,13 @@ const valorInput = (event) => {
                 <div className='modal-body'>
                     <p className='texto-cabecalho-modal' id='p-recibo'>Recibo de pagamento</p>
                     <p>O Pagamento <b>{abrirNaoRecebeu}</b> foi concluído com sucesso</p>
-                    <button id='modal-close' onClick={()=>{fecharModal()}}>
-                            <img src={ic_fechar} className='icon' alt='Fechar'/>
+                    <button title='Fechar' id='modal-close' onClick={()=>{fecharModal()}}>
+                        <img aria-label='Botão Fechar' src={ic_fechar} className='icon' alt='Fechar'/>
                     </button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
-export default ListaDeUsuarios;
+//export default ListaDeUsuarios;

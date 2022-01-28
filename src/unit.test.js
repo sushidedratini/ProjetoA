@@ -1,12 +1,31 @@
 const assert = require('assert');
-import { render, screen } from '@testing-library/react';
+import { render, screen, fireEvent, getAllByAltText, getAllByText, waitFor } from '@testing-library/react';
 import { ListaDeUsuarios } from './ListaDeUsuarios'
+import { act } from 'react-dom/test-utils';
 
 describe('Lista de Usuarios Component', (done) => {
-    it('Teste Render', () => {
-        const { container } = render(<ListaDeUsuarios />);
-        // const nomeUsuario = screen.getByText("Eduardo Santos");
+    it('Teste Render', async () => {
+        
+        const { container, getByText, getByAltText, queryByTitle, getByTestId } = render(<ListaDeUsuarios />);
 
+        await waitFor(() => {
+            const teste = screen.getByText("Fechar");
+            expect(teste).toBeInTheDocument();
+        });
+        
+        expect(container).toBeInTheDocument();
+    });
+
+    it('Teste Render 2', async () => {
+        const { container, getByText, getByAltText, queryByTitle, getByTestId } = render(<ListaDeUsuarios />);
+
+        
+        await waitFor(() => {
+            const teste = screen.getByText("Pagamento para ");
+            expect(teste).toBeInTheDocument();
+        });
+        
+        
         expect(container).toBeInTheDocument();
     });
 });

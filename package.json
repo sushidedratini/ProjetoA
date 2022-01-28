@@ -21,7 +21,7 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --max-old-space-size=4096 --detectOpenHandles --passWithNoTests --coverage --colors --watchAll false",
+    "test": "react-scripts test --max-old-space-size=4096 --passWithNoTests --coverage --colors --watchAll false",
     "clear-jest": "jest --clearCache",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
