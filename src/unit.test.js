@@ -21,8 +21,12 @@ describe('Lista de Usuarios Component', (done) => {
 
         
         await waitFor(() => {
-            const teste = screen.getByText("Pagamento para ");
-            expect(teste).toBeInTheDocument();
+            const teste = screen.getAllByText("Pagar")[0];
+            fireEvent.click(teste);
+
+            const teste2 = screen.getAllByText("Pagamento para ");
+
+            expect(teste2).toBeInTheDocument();
         });
         
         
